@@ -1,0 +1,25 @@
+## kbricks gears
+
+STL file name | Image
+--------------|------
+gear1.stl | ![gear1](../../img/gears/gear1.png)
+gear2.stl | ![gear2](../../img/gears/gear2.png)
+gear3.stl | ![gear3](../../img/gears/gear3.png)
+gear4.stl | ![gear4](../../img/gears/gear4.png)
+gear5.stl | ![gear5](../../img/gears/gear5.png)
+bevel_gear_60deg.stl | ![bevel_gear_60deg](../../img/gears/bevel_gear_60deg.png)
+bevel_gear_90deg.stl | ![bevel_gear_90deg](../../img/gears/bevel_gear_90deg.png)
+bevel_gear_90deg_short.stl | ![bevel_gear_90deg_short](../../img/gears/bevel_gear_90deg_short.png)
+gear_rack4.stl | ![gear_rack4](../../img/gears/gear_rack4.png)
+gear_rack5.stl | ![gear_rack5](../../img/gears/gear_rack5.png)
+gear_rack6.stl | ![gear_rack6](../../img/gears/gear_rack6.png)
+gear_rack7.stl | ![gear_rack7](../../img/gears/gear_rack7.png)
+gear_rack8.stl | ![gear_rack8](../../img/gears/gear_rack8.png)
+gear_rack9.stl | ![gear_rack9](../../img/gears/gear_rack9.png)
+gear_rack10.stl | ![gear_rack10](../../img/gears/gear_rack10.png)
+gear_rack11.stl | ![gear_rack11](../../img/gears/gear_rack11.png)
+gear_rack12.stl | ![gear_rack12](../../img/gears/gear_rack12.png)
+gear_rack13.stl | ![gear_rack13](../../img/gears/gear_rack13.png)
+gear_rack14.stl | ![gear_rack14](../../img/gears/gear_rack14.png)
+gear_rack15.stl | ![gear_rack15](../../img/gears/gear_rack15.png)
+gear_rack16.stl | ![gear_rack16](../../img/gears/gear_rack16.png)
