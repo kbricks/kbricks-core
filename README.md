@@ -8,7 +8,7 @@ This repository contains the core parts of the construction system.
 
 There are three fundamental types of parts that make up the kbricks construction system: cubes, plates, and beams. Parts are assembled through to types of connectors: slide connectors and pegs. Furthermore, there are wheels, gears, axles, steerings, and icing parts which make the models look nice.
 
-  ![Examples of kbricks parts](img/kbricks_part_types.png | width=400)
+  ![Examples of kbricks parts](img/kbricks_part_types.png)
 
 **STL files** of all available kbricks parts can be found in the *stl* folders of this repository. The parts are organized into the following categories:
 
@@ -26,7 +26,7 @@ There are three fundamental types of parts that make up the kbricks construction
 
 kbricks makes it easy to design your own models. Example examples will become available in [kbricks-models](https://github.com/kbricks/kbricks-models) repository. The following picture shows a kbricks tractor:
 
-  ![kbricks tractor](img/kbricks_tractor.png | width=400)
+  ![kbricks tractor](img/kbricks_tractor.png)
 
 ## Printing instructions
 
