@@ -8,25 +8,25 @@ This repository contains the core parts of the construction system.
 
 There are three fundamental types of parts that make up the kbricks construction system: cubes, plates, and beams. Parts are assembled through to types of connectors: slide connectors and pegs. Furthermore, there are wheels, gears, axles, steerings, and icing parts which make the models look nice.
 
-![Examples of kbricks parts](img/kbricks_part_types.jpg | width=400)
+  ![Examples of kbricks parts](img/kbricks_part_types.png | width=400)
 
 **STL files** of all available kbricks parts can be found in the *stl* folders of this repository. The parts are organized into the following categories:
 
-* [Cubes](img/cubes)
-* [Plates](img/plates)
-* [Beams](img/beams)
-* [Connectors](img/connectors)
-* [Wheels](img/wheels)
-* [Gears](img/gears)
-* [Axles](img/axles)
-* [Steerings](img/steerings)
-* [Icing](img/icing)
+* [Cubes](stl/cubes)
+* [Plates](stl/plates)
+* [Beams](stl/beams)
+* [Connectors](stl/connectors)
+* [Wheels](stl/wheels)
+* [Gears](stl/gears)
+* [Axles](stl/axles)
+* [Steerings](stl/steerings)
+* [Icing](stl/icing)
 
 ## Available modes
 
 kbricks makes it easy to design your own models. Example examples will become available in [kbricks-models](https://github.com/kbricks/kbricks-models) repository. The following picture shows a kbricks tractor:
 
-![kbricks tractor](img/kbricks_tractor.jpg | width=400)
+  ![kbricks tractor](img/kbricks_tractor.png | width=400)
 
 ## Printing instructions
 
@@ -47,5 +47,5 @@ To disassemble a kbricks model, simply **pull out** the slide connectors using a
 ## Licenses
 
 1. kbricks by Robert Kern is licensed under the [Creative Commons - Attribution - Non-Commercial - Share Alike license](LICENSE.txt).
-2. The kbricks parts have been designed using the [OpenSCAD](https://www.openscad.org) 3D CAD modeller licensed under [General Public License version 2](http://www.gnu.org/licenses/gpl-2.0.html).
+2. kbricks was designed using the [OpenSCAD](https://www.openscad.org) 3D CAD modeller licensed under [General Public License version 2](http://www.gnu.org/licenses/gpl-2.0.html).
 3. kbricks [Gears](img/gears) use the [Gears Library for OpenSCAD](https://www.thingiverse.com/thing:1604369) by [janssen86](https://www.thingiverse.com/janssen86) licensed under the Creative Commons - Attribution - Non-Commercial - Share Alike license.
