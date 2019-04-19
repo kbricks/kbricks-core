@@ -1,4 +1,4 @@
-// kbricks construction system
+// kbricks construction system V1.0.0
 // This file contains the CAD source of all kbricks core parts
 // Copyright 2019 Robert Kern
 
