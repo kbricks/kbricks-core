@@ -32,7 +32,7 @@ kbricks makes it easy to design your own models. Examples will become available 
 
 All parts can be printed using virtually any state-of-the-art 3d printer. For our tests, the [Prusa i3 MK3](https://en.wikipedia.org/wiki/Prusa_i3) was used. Recommended materials are PLA and PETG with a layer height of 0.15 mm. All parts are printed without support but for some parts, specific print settings are required:
 
-* **Cubes** contain a thin embedded support structure that needs to be removed after printing. Option *Detect thin walls* needs to be checked in the slicer software to allow for printing these structures.
+* **Cubes** contain a thin embedded support structure that needs to be removed after printing. Option *Detect thin walls* needs to be checked in the slicer software to allow for printing these structures. This [video](https://youtu.be/IWulSZqhvvo) shows how to remove the embedded support.
 * **Connectors** should be printed with *brim* to increase the adhesion on the print plate.
 * **Beams with peg** (needed for steerings) should be printed with *Support on build plate only*.
 
