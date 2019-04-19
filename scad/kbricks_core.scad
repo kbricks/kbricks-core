@@ -329,7 +329,7 @@ module bevel_gear_60deg() {
         for(i=[0,1])
         translate([27.9*i,0,4])
         connector_lock(length_mm = 8);
-        kegelradpaar(modul=1, zahnzahl_rad=20, zahnzahl_ritzel=20, achsenwinkel=60, zahnbreite=9, bohrung_rad=6.1, bohrung_ritzel=6.1, eingriffswinkel = 20, schraegungswinkel=0, zusammen_gebaut=true);
+        kegelradpaar(modul=1, zahnzahl_rad=20, zahnzahl_ritzel=20, achsenwinkel=60, zahnbreite=9, bohrung_rad=6.1, bohrung_ritzel=6.1, eingriffswinkel = 20, schraegungswinkel=0, zusammen_gebaut=false);
     }
 } 
 
