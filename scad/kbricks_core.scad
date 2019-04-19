@@ -36,6 +36,7 @@ module export(part="",support=false) {
         if (part=="cube_smooth") cube_smooth(support=support);
         if (part=="cube_l") cube_l(support=support);
         if (part=="cube_u") cube_u(support=support);
+        if (part=="cube_1hole_open") cube_holes(number_wholes=1,open=true,support=support);
         if (part=="cube_1hole") cube_holes(number_wholes=1,support=support);
         if (part=="cube_2hole") cube_holes(number_wholes=2,support=support);
         if (part=="seat") seat(support=support);

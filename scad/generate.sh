@@ -32,6 +32,7 @@ generate_part cubes cube_basic
 generate_part cubes cube_smooth
 generate_part cubes cube_l
 generate_part cubes cube_u
+generate_part cubes cube_1hole_open
 generate_part cubes cube_1hole
 generate_part cubes cube_2hole
 generate_part cubes prism_45deg
