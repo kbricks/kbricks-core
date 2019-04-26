@@ -81,46 +81,77 @@ module export(part="",support=false) {
         if (part=="plate_2hole_inline") plate_holes(number_wholes=2,inline=true);
         if (part=="plate_2hole_rounded_inline_centered") plate_holes(number_wholes=2,rounded=true,inline=true,centered=true);
 
-        if (part == "beam1") beam(number_wholes=1);
-        if (part == "beam2") beam(number_wholes=2);
-        if (part == "beam3") beam(number_wholes=3);
-        if (part == "beam4") beam(number_wholes=4);
-        if (part == "beam5") beam(number_wholes=5);
-        if (part == "beam6") beam(number_wholes=6);
-        if (part == "beam7") beam(number_wholes=7);
-        if (part == "beam8") beam(number_wholes=8);
-        if (part == "beam9") beam(number_wholes=9);
-        if (part == "beam10") beam(number_wholes=10);
-        if (part == "beam11") beam(number_wholes=11);
-        if (part == "beam12") beam(number_wholes=12);
-        if (part == "beam13") beam(number_wholes=13);
-        if (part == "beam14") beam(number_wholes=14);
-        if (part == "beam15") beam(number_wholes=15);
-        if (part == "beam16") beam(number_wholes=16);
-        if (part == "beam2_alternating") beam(number_wholes=2,alternating=true);
-        if (part == "beam3_alternating") beam(number_wholes=3,alternating=true);
-        if (part == "beam5_alternating") beam(number_wholes=5,alternating=true);
-        if (part == "beam7_alternating") beam(number_wholes=7,alternating=true);
-        if (part == "beam9_alternating") beam(number_wholes=9,alternating=true);
-        if (part == "beam11_alternating") beam(number_wholes=11,alternating=true);
-        if (part == "beam13_alternating") beam(number_wholes=13,alternating=true);
-        if (part == "beam15_alternating") beam(number_wholes=15,alternating=true);
-        if (part == "beam1_rounded") beam(number_wholes=1,rounded=true);
-        if (part == "beam2_rounded") beam(number_wholes=2,rounded=true);
-        if (part == "beam3_rounded") beam(number_wholes=3,rounded=true);
-        if (part == "beam4_rounded") beam(number_wholes=4,rounded=true);
-        if (part == "beam5_rounded") beam(number_wholes=5,rounded=true);
-        if (part == "beam6_rounded") beam(number_wholes=6,rounded=true);
-        if (part == "beam7_rounded") beam(number_wholes=7,rounded=true);
-        if (part == "beam8_rounded") beam(number_wholes=8,rounded=true);
-        if (part == "beam9_rounded") beam(number_wholes=9,rounded=true);
-        if (part == "beam10_rounded") beam(number_wholes=10,rounded=true);
-        if (part == "beam11_rounded") beam(number_wholes=11,rounded=true);
-        if (part == "beam12_rounded") beam(number_wholes=12,rounded=true);
-        if (part == "beam13_rounded") beam(number_wholes=13,rounded=true);
-        if (part == "beam14_rounded") beam(number_wholes=14,rounded=true);
-        if (part == "beam15_rounded") beam(number_wholes=15,rounded=true);
-        if (part == "beam16_rounded") beam(number_wholes=16,rounded=true);
+        if (part == "beam1") beam(number_wholes=1,tolerance=0);
+        if (part == "beam2") beam(number_wholes=2,tolerance=0);
+        if (part == "beam3") beam(number_wholes=3,tolerance=0);
+        if (part == "beam4") beam(number_wholes=4,tolerance=0);
+        if (part == "beam5") beam(number_wholes=5,tolerance=0);
+        if (part == "beam6") beam(number_wholes=6,tolerance=0);
+        if (part == "beam7") beam(number_wholes=7,tolerance=0);
+        if (part == "beam8") beam(number_wholes=8,tolerance=0);
+        if (part == "beam9") beam(number_wholes=9,tolerance=0);
+        if (part == "beam10") beam(number_wholes=10,tolerance=0);
+        if (part == "beam11") beam(number_wholes=11,tolerance=0);
+        if (part == "beam12") beam(number_wholes=12,tolerance=0);
+        if (part == "beam13") beam(number_wholes=13,tolerance=0);
+        if (part == "beam14") beam(number_wholes=14,tolerance=0);
+        if (part == "beam15") beam(number_wholes=15,tolerance=0);
+        if (part == "beam16") beam(number_wholes=16,tolerance=0);
+ 
+        if (part == "beam3_flat") beam(number_wholes=3,flat=true,tolerance=0);
+        if (part == "beam4_flat") beam(number_wholes=4,flat=true,tolerance=0);
+        if (part == "beam5_flat") beam(number_wholes=5,flat=true,tolerance=0);
+        if (part == "beam6_flat") beam(number_wholes=6,flat=true,tolerance=0);
+        if (part == "beam7_flat") beam(number_wholes=7,flat=true,tolerance=0);
+        if (part == "beam8_flat") beam(number_wholes=8,flat=true,tolerance=0);
+        if (part == "beam9_flat") beam(number_wholes=9,flat=true,tolerance=0);
+        if (part == "beam10_flat") beam(number_wholes=10,flat=true,tolerance=0);
+        if (part == "beam11_flat") beam(number_wholes=11,flat=true,tolerance=0);
+        if (part == "beam12_flat") beam(number_wholes=12,flat=true,tolerance=0);
+        if (part == "beam13_flat") beam(number_wholes=13,flat=true,tolerance=0);
+        if (part == "beam14_flat") beam(number_wholes=14,flat=true,tolerance=0);
+        if (part == "beam15_flat") beam(number_wholes=15,flat=true,tolerance=0);
+        if (part == "beam16_flat") beam(number_wholes=16,flat=true,tolerance=0);
+
+        if (part == "beam2_alternating") beam(number_wholes=2,alternating=true,tolerance=0);
+        if (part == "beam3_alternating") beam(number_wholes=3,alternating=true,tolerance=0);
+        if (part == "beam5_alternating") beam(number_wholes=5,alternating=true,tolerance=0);
+        if (part == "beam7_alternating") beam(number_wholes=7,alternating=true,tolerance=0);
+        if (part == "beam9_alternating") beam(number_wholes=9,alternating=true,tolerance=0);
+        if (part == "beam11_alternating") beam(number_wholes=11,alternating=true,tolerance=0);
+        if (part == "beam13_alternating") beam(number_wholes=13,alternating=true,tolerance=0);
+        if (part == "beam15_alternating") beam(number_wholes=15,alternating=true,tolerance=0);
+        if (part == "beam1_rounded") beam(number_wholes=1,rounded=true,tolerance=0);
+        if (part == "beam2_rounded") beam(number_wholes=2,rounded=true,tolerance=0);
+        if (part == "beam3_rounded") beam(number_wholes=3,rounded=true,tolerance=0);
+        if (part == "beam4_rounded") beam(number_wholes=4,rounded=true,tolerance=0);
+        if (part == "beam5_rounded") beam(number_wholes=5,rounded=true,tolerance=0);
+        if (part == "beam6_rounded") beam(number_wholes=6,rounded=true,tolerance=0);
+        if (part == "beam7_rounded") beam(number_wholes=7,rounded=true,tolerance=0);
+        if (part == "beam8_rounded") beam(number_wholes=8,rounded=true,tolerance=0);
+        if (part == "beam9_rounded") beam(number_wholes=9,rounded=true,tolerance=0);
+        if (part == "beam10_rounded") beam(number_wholes=10,rounded=true,tolerance=0);
+        if (part == "beam11_rounded") beam(number_wholes=11,rounded=true,tolerance=0);
+        if (part == "beam12_rounded") beam(number_wholes=12,rounded=true,tolerance=0);
+        if (part == "beam13_rounded") beam(number_wholes=13,rounded=true,tolerance=0);
+        if (part == "beam14_rounded") beam(number_wholes=14,rounded=true,tolerance=0);
+        if (part == "beam15_rounded") beam(number_wholes=15,rounded=true,tolerance=0);
+        if (part == "beam16_rounded") beam(number_wholes=16,rounded=true,tolerance=0);
+
+        if (part == "beam3_rounded_flat") beam(number_wholes=3,rounded=true,flat=true);
+        if (part == "beam4_rounded_flat") beam(number_wholes=4,rounded=true,flat=true);
+        if (part == "beam5_rounded_flat") beam(number_wholes=5,rounded=true,flat=true);
+        if (part == "beam6_rounded_flat") beam(number_wholes=6,rounded=true,flat=true);
+        if (part == "beam7_rounded_flat") beam(number_wholes=7,rounded=true,flat=true);
+        if (part == "beam8_rounded_flat") beam(number_wholes=8,rounded=true,flat=true);
+        if (part == "beam9_rounded_flat") beam(number_wholes=9,rounded=true,flat=true);
+        if (part == "beam10_rounded_flat") beam(number_wholes=10,rounded=true,flat=true);
+        if (part == "beam11_rounded_flat") beam(number_wholes=11,rounded=true,flat=true);
+        if (part == "beam12_rounded_flat") beam(number_wholes=12,rounded=true,flat=true);
+        if (part == "beam13_rounded_flat") beam(number_wholes=13,rounded=true,flat=true);
+        if (part == "beam14_rounded_flat") beam(number_wholes=14,rounded=true,flat=true);
+        if (part == "beam15_rounded_flat") beam(number_wholes=15,rounded=true,flat=true);
+        if (part == "beam16_rounded_flat") beam(number_wholes=16,rounded=true,flat=true);
 
         if (part == "beam3_peg_pos1") beam_with_peg(number_wholes=3,position=1);
         if (part == "beam3_peg_pos2") beam_with_peg(number_wholes=3,position=2);
@@ -541,7 +572,7 @@ module beam_with_peg(number_wholes=3,alternating=false,position=1,rounded=true,s
 
 module beam(number_wholes=5,alternating=false,flat=false,rounded=false,tolerance=beam_tolerance,semirounded=false) {
     if (flat)
-        beam_with_outer_connectors(number_wholes=number_wholes,hight=5.9,rounded=rounded);
+        beam_with_outer_connectors(number_wholes=number_wholes,hight=5.9,rounded=rounded,tolerance=tolerance);
     else {
         dist=(number_wholes-1)*6;
         difference() {
@@ -872,7 +903,7 @@ module beam_with_outer_connectors(number_wholes=5,hight=5.9,rounded=false,tolera
                 if (rounded)
                     cylinder(2*radius, radius, radius);
                 else
-                    cube([11.8,11.8,11.9], center=true);
+                    cube([2*radius, 2*radius, 2*radius], center=true);
             }
             translate([-pos,0,6])
             peg_female();
