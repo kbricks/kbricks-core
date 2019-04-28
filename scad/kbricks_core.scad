@@ -721,22 +721,21 @@ module cube_basic(support=false) {
     }
 }
 
-module seat() {
+module seat(support=true) {
     union() {
         difference() {
             cube([36, 24, 24], center=true);
-            angles = [ [180,0,180],[180,90,180],
-            [90,180,0],[90,180,90] ];
-            for ( w = angles) {
-                slot(angle = w);
+            angles = [ [0,0,0],[0,90,0],[270,0,0],[270,0,90]];
+            for (w = angles) {
+                slot(angle1 = w);
             }
             translate([0, -6, 6]) {
                 cube([24, 24, 24], center=true);
             }
         }
-        translate([0, 12, 0]) {
+        if(support)
+            translate([0, 11.9, 0])
             cube([35.8, 0.2, 4.2], center=true);
-        }
     }
 }
 
