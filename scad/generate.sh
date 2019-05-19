@@ -194,8 +194,8 @@ generate_part axles axle14
 generate_part axles axle15
 generate_part axles axle16
 generate_part axles axle_ring
-generate_part axles kardan_shaft
-generate_part axles kardan_cube
+generate_part axles cardan_joint
+generate_part axles cardan_cube
 generate_part steerings steering5
 generate_part steerings steering6
 generate_part steerings steering7
