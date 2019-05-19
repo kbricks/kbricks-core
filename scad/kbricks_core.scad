@@ -212,8 +212,8 @@ module export(part="",support=false) {
         if (part == "axle16") axle(length=16);
 
         if (part == "axle_ring") axle_ring();
-        if (part == "kardan_shaft") kardan_shaft();
-        if (part == "kardan_cube") kardan_cube();
+        if (part == "cardan_joint") cardan_joint();
+        if (part == "cardan_cube") cardan_cube();
         if (part == "steering5") steering(number_wholes=5);
         if (part == "steering6") steering(number_wholes=6);
         if (part == "steering7") steering(number_wholes=7);
@@ -282,7 +282,7 @@ module cube_u(support=false) {
     }
 }
 
-module kardan_shaft() {
+module cardan_joint() {
     union() {
         difference() {
             translate([0,0,3.5])
@@ -303,7 +303,7 @@ module kardan_shaft() {
     }
 }
 
-module kardan_cube() {
+module cardan_cube() {
     difference() {
         cube(4.6,center=true);
         for(i=[0:3])
