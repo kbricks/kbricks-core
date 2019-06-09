@@ -72,6 +72,7 @@ generate_part plates plate_peg
 generate_part plates plate_1hole
 generate_part plates plate_1hole_rounded
 generate_part plates plate_2hole
+generate_part plates plate_2hole_rounded
 generate_part plates plate_2hole_inline
 generate_part plates plate_2hole_rounded_inline_centered
 generate_part beams beam1

@@ -36,3 +36,4 @@ plate_1hole_rounded.stl | ![plate_1hole_rounded](../../img/plates/plate_1hole_ro
 plate_2hole.stl | ![plate_2hole](../../img/plates/plate_2hole.png)
 plate_2hole_inline.stl | ![plate_2hole_inline](../../img/plates/plate_2hole_inline.png)
 plate_2hole_rounded_inline_centered.stl | ![plate_2hole_rounded_inline_centered](../../img/plates/plate_2hole_rounded_inline_centered.png)
+plate_2hole_rounded.stl | ![plate_2hole_rounded](../../img/plates/plate_2hole_rounded.png)
