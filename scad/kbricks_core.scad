@@ -78,6 +78,7 @@ module export(part="",support=false) {
         if (part=="plate_1hole") plate_holes(number_wholes=1);
         if (part=="plate_1hole_rounded") plate_holes(number_wholes=1,rounded=true);
         if (part=="plate_2hole") plate_holes(number_wholes=2);
+        if (part=="plate_2hole_rounded") plate_holes(number_wholes=2,rounded=true);
         if (part=="plate_2hole_inline") plate_holes(number_wholes=2,inline=true);
         if (part=="plate_2hole_rounded_inline_centered") plate_holes(number_wholes=2,rounded=true,inline=true,centered=true);
 
