@@ -35,11 +35,16 @@ module export(part="",support=false) {
         if (part=="cube_basic") cube_basic(support=support);
         if (part=="cube_smooth") cube_smooth(support=support);
         if (part=="cube_l") cube_l(support=support);
+        if (part=="cube_c") cube_c(support=support);
+        if (part=="cube_s") cube_s(support=support);
         if (part=="cube_u") cube_u(support=support);
+        if (part=="cube_u_2holes") cube_u_2holes(support=support);
         if (part=="cube_1hole_open") cube_holes(number_wholes=1,open=true,support=support);
+        if (part=="cube_2open") cube_2open(support=support);
         if (part=="cube_1hole") cube_holes(number_wholes=1,support=support);
         if (part=="cube_2hole") cube_holes(number_wholes=2,support=support);
         if (part=="seat") seat(support=support);
+        if (part=="disk") disk();
 
         if (part=="connector_short") connector(length=6);
         if (part=="connector_long") connector(length=16);
@@ -68,6 +73,21 @@ module export(part="",support=false) {
         if (part=="plate5x5") plate(length=5,width=5);
         if (part=="plate6x5") plate(length=6,width=5);
         if (part=="plate6x6") plate(length=6,width=6);
+        if (part=="plate2x2_twosided") plate_twosided(length=2,width=2);
+        if (part=="plate3x2_twosided") plate_twosided(length=3,width=2);
+        if (part=="plate4x2_twosided") plate_twosided(length=4,width=2);
+        if (part=="plate5x2_twosided") plate_twosided(length=5,width=2);
+        if (part=="plate6x2_twosided") plate_twosided(length=6,width=2);
+        if (part=="plate3x3_twosided") plate_twosided(length=3,width=3);
+        if (part=="plate4x3_twosided") plate_twosided(length=4,width=3);
+        if (part=="plate5x3_twosided") plate_twosided(length=5,width=3);
+        if (part=="plate6x3_twosided") plate_twosided(length=6,width=3);
+        if (part=="plate4x4_twosided") plate_twosided(length=4,width=4);
+        if (part=="plate5x4_twosided") plate_twosided(length=5,width=4);
+        if (part=="plate6x4_twosided") plate_twosided(length=6,width=4);
+        if (part=="plate5x5_twosided") plate_twosided(length=5,width=5);
+        if (part=="plate6x5_twosided") plate_twosided(length=6,width=5);
+        if (part=="plate6x6_twosided") plate_twosided(length=6,width=6);
         if (part=="plate1x1_rounded") plate(length=1,width=1,rounded=true);
         if (part=="plate2x1_rounded") plate(length=2,width=1,rounded=true);
         if (part=="plate3x1_rounded") plate(length=3,width=1,rounded=true);
@@ -80,7 +100,9 @@ module export(part="",support=false) {
         if (part=="plate_2hole") plate_holes(number_wholes=2);
         if (part=="plate_2hole_rounded") plate_holes(number_wholes=2,rounded=true);
         if (part=="plate_2hole_inline") plate_holes(number_wholes=2,inline=true);
+        if (part=="plate_2hole_rounded_inline") plate_holes(number_wholes=2,rounded=true,inline=true);
         if (part=="plate_2hole_rounded_inline_centered") plate_holes(number_wholes=2,rounded=true,inline=true,centered=true);
+        if (part=="plate_hinged") plate_holes(hinged=true);
 
         if (part == "beam1") beam(number_wholes=1,tolerance=0);
         if (part == "beam2") beam(number_wholes=2,tolerance=0);
@@ -158,6 +180,11 @@ module export(part="",support=false) {
         if (part == "beam3_peg_pos2") beam_with_peg(number_wholes=3,position=2);
         if (part == "beam2_peg_pos2_alternating_semirounded") beam_with_peg(number_wholes=2,position=2,alternating=true,semirounded=true);
 
+        if (part == "beam2_rounded_locked_pos1") beam(number_wholes=2,rounded=true,locked=1);
+        if (part == "beam3_rounded_locked_pos1") beam(number_wholes=3,rounded=true,locked=1);
+        if (part == "beam3_rounded_locked_pos2") beam(number_wholes=3,rounded=true,locked=2);
+        if (part == "beam5_rounded_locked_pos3") beam(number_wholes=5,rounded=true,locked=3);
+
         if (part == "prism_45deg") prism_45deg();
         if (part == "prism_60deg") prism_60deg();
         if (part == "gear1") gear(number_cogs=12);
@@ -165,6 +192,10 @@ module export(part="",support=false) {
         if (part == "gear3") gear(number_cogs=36);
         if (part == "gear4") gear(number_cogs=48);
         if (part == "gear5") gear(number_cogs=60);
+        if (part == "worm2") worm(length=cube_size);
+        if (part == "worm4") worm(length=2*cube_size);
+        if (part == "worm6") worm(length=3*cube_size);
+        if (part == "worm_cube") worm_cube();
         if (part == "bevel_gear_60deg") bevel_gear_60deg();
         if (part == "bevel_gear_90deg") bevel_gear_90deg();
         if (part == "bevel_gear_90deg_short") bevel_gear_90deg_short();
@@ -237,9 +268,23 @@ module spoke_wheel(size=3,rim=false,locked=false) {
         spoke_wheel_impl(outer_radius=cube_size/24*12,inner_radius=cube_size/24*9,width=cube_size/3,rounding_radius=cube_size/24,number_spokes=8,spoke_height=cube_size/6,rim_depth=rim_depth,locked=locked);
 }
 
-module plate_holes(number_wholes=2,rounded=false,inline=false,centered=false) {
+module plate_holes(number_wholes=2,rounded=false,inline=false,centered=false, hinged=false) {
     assert (number_wholes>=1 && number_wholes<=2);
-    if (number_wholes==1 && rounded) {
+    if (hinged) {
+        rotate([0, 180, 0])
+        union() {
+            plate(length=1,width=1,rounded=false);
+            u = cube_size/8*sqrt(2);
+            translate([0, cube_size/8*5, 0])
+            rotate([45, 0, 0])
+            prism(length=24,width=2*u,height=u);
+            for (i=[-1:2:1]) {
+                translate([i*cube_size/4, cube_size/4*3, -cube_size/8])
+                rotate([0, 90, 0])
+                beam(1,rounded=true,tolerance=0);
+            }
+        }
+    } else if (number_wholes==1 && rounded) {
         union() {
             translate([6,0,-9])
             plate(1,1);
@@ -283,14 +328,38 @@ module cube_u(support=false) {
     }
 }
 
+module cube_u_2holes() {
+    difference() {
+        cube(cube_size, center=true);
+        angles = [ [90, 180, 0],[90, 180, 90] ];
+        for ( w = angles) {
+            slot(angle1 = w);
+        }
+        p = cube_size / 4;
+        translate([0, 0, p]) {
+            cube([2*cube_size, cube_size/2, cube_size], center=true);
+        }
+        translate([0, -cube_size/4, cube_size/4])
+        rotate([90, 0, 0])
+        peg_female();
+        translate([0, cube_size/4, cube_size/4])
+        rotate([90, 0, 0])
+        peg_female();
+    }
+}
+
 module cardan_joint() {
     union() {
         difference() {
-            translate([0,0,3.5])
-            cylinder(18,5,5,center=true);
+            translate([0,0,4.5])
+            cylinder(16,5,5,center=true);
             translate([0,0,6])
             cylinder(8,3,3);
-            peg_female_with_lock();
+            difference() {
+                peg_female();
+                translate([0,0,3])
+                connector_lock(14);
+            }
             translate([0,0,14])
             cube([6.2,16,16],center=true);
             for(i=[-1:2:1])
@@ -367,6 +436,7 @@ module bevel_gear_60deg() {
 } 
 
 module bevel_gear_90deg() {
+    r = cube_size / 4 - axle_tolerance;
     distance = 22.67;
     rotate([180,0,0])
     for (i=[0:1])
@@ -378,10 +448,10 @@ module bevel_gear_90deg() {
                 translate([distance,0,8])
                 cylinder(6,12,12,center=true);
             }
-            translate([distance*i,0,-6.9])        
+            translate([distance*i,0,-5.9])
             difference() {
-                cylinder(13.8,5,5,center=true);
-                translate([0,0,-1])        
+                cylinder(12.2, r, r, center=true);
+                translate([0,0,-2])
                 peg_female();
             }
             translate([distance*i,0,-8])        
@@ -496,6 +566,45 @@ module gear(number_cogs=24) {
     }
 }
 
+
+module worm(length=3*cube_size, angle=10) {
+    union() {
+        b = axle_diameter + axle_tolerance;
+        difference() {
+            schnecke(modul=1, gangzahl=2, laenge=length, bohrung=b,
+            eingriffswinkel=20, steigungswinkel=angle, zusammen_gebaut=true);
+            translate([0, 0, cube_size/6])
+            peg_female();
+            translate([0, 0, length-cube_size/6])
+            peg_female();
+        }
+        translate([0,0,4])
+        connector_lock(cube_size/3);
+        translate([0, 0, length-cube_size/6])
+        connector_lock(cube_size/3);
+    }
+}
+
+module worm_cube() {
+    rotate([90, 0, 0])
+    difference() {
+        s = cube_size - 2*beam_tolerance;
+        cube([2*s, s/2, s], center=true);
+        for(x = [-1:2:1]) {
+            translate([x*cube_size/4*3, 0, cube_size/4])
+            rotate([90, 0, 90])
+            peg_female();
+            translate([x*cube_size/4*3, 0, -cube_size/4])
+            peg_female();
+        }
+        translate([0, cube_size/4, 0])
+        rotate([90, 0, 0])
+        worm(length=cube_size/2, angle=8.8);
+        rotate([90, 0, 0])
+        cylinder(2*cube_size, cube_size/24*5, cube_size/24*5, center=true);
+    }
+}
+
 module cube_l(support=false) {
     union() {
         difference() {
@@ -513,6 +622,53 @@ module cube_l(support=false) {
             difference() {
                 cube([24, 5, 4.2], center=true);
                 cube([23.6, 4.6, 5], center=true);
+            }
+        }
+    }
+}
+
+module cube_c(support=false) {
+    union() {
+        difference() {
+            cube(cube_size, center=true);
+            angles = [ [180, 0, 180],[180, 90, 180],
+            [90, 180, 0],[90, 180, 90],[180, 0, 270],[180, 90, 270] ];
+            for ( w = angles) {
+                slot(angle1 = w);
+            }
+            p = cube_size / 4;
+            translate([p, -p, p]) {
+                cube([cube_size, cube_size, cube_size], center=true);
+            }
+        }
+        if (support) {
+            angles = [ [0.0, 90, 0], [180, 90, 270] ];
+            for ( w = angles) {
+                slot_support(angle = w);
+            }
+        }
+    }
+}
+
+module cube_s(support=false) {
+    union() {
+        difference() {
+            cube(cube_size, center=true);
+            angles = [ [180, 0, 180],[180, 90, 180],
+            [90, 180, 0],[90, 180, 90],[180, 0, 270],[180, 90, 270],
+            [180, 0, 0],[180, 90, 0] ];
+            for ( w = angles) {
+                slot(angle1 = w);
+            }
+            p = cube_size / 4;
+            translate([p, 0, p]) {
+                cube([cube_size, cube_size/2, cube_size], center=true);
+            }
+        }
+        if (support) {
+            angles = [ [0, 90, 0], [180, 90, 270], [90, 90, 270] ];
+            for ( w = angles) {
+                slot_support(angle = w);
             }
         }
     }
@@ -571,7 +727,7 @@ module beam_with_peg(number_wholes=3,alternating=false,position=1,rounded=true,s
     }
 }
 
-module beam(number_wholes=5,alternating=false,flat=false,rounded=false,tolerance=beam_tolerance,semirounded=false) {
+module beam(number_wholes=5,alternating=false,flat=false,rounded=false,tolerance=beam_tolerance,semirounded=false,locked=-1) {
     if (flat)
         beam_with_outer_connectors(number_wholes=number_wholes,hight=5.9,rounded=rounded,tolerance=tolerance);
     else {
@@ -600,7 +756,11 @@ module beam(number_wholes=5,alternating=false,flat=false,rounded=false,tolerance
                 x_angle = (alternating && i%2==1) ? 90 : 0;
                 translate([-dist+12*i,0,0]) {
                     rotate([x_angle,0,0])
-                    peg_female();
+                    if (locked == i+1) {
+                        peg_female_with_lock();
+                    } else {
+                        peg_female();
+                    }
                 }
             }
         }
@@ -643,6 +803,24 @@ module plate(length=1,width=1,rounded=false) {
         }
 }
 
+module plate_twosided(length=1,width=1) {
+    difference() {
+        plate(length, width, false);
+        for(l = [-cube_size/2:cube_size:cube_size*length]) {
+            for(w = [cube_size/2:cube_size:cube_size*(width-1)]) {
+                translate([w, l, -cube_size/8*3])
+                slot(angle1 = [90,0,0]);
+            }
+        }
+        for(l = [cube_size/2:cube_size:cube_size*(length-1)]) {
+            for(w = [-cube_size/2:cube_size:cube_size*width]) {
+                translate([w, l, -cube_size/8*3])
+                slot(angle1 = [90,0,90]);
+            }
+        }
+    }
+};
+
 module cube_holes(number_wholes=2,open=false,support=false) {
     if(open)
         difference() {
@@ -670,6 +848,33 @@ module cube_holes(number_wholes=2,open=false,support=false) {
                 slot(angle1 = w);
             }
         }
+}
+
+module cube_2open(support=false) {
+    r = (axle_diameter + axle_tolerance) / 2;
+    union() {
+        difference() {
+            cube(cube_size, center=true);
+            angles = [ [180, 0, 180],[180, 90, 180],
+            [90, 180, 0],[90, 180, 90],[90, 0, 0],[90, 0, 90],
+            [180, 0, 0],[180, 90, 0] ];
+            for ( w = angles) {
+                slot(angle1 = w);
+            }
+            translate([axle_diameter/6*8-beam_tolerance, 0, 0])
+            cube([cube_size/2,cube_size/2,cube_size/2],center=true);
+            translate([-axle_diameter/6*8+beam_tolerance, 0, 0])
+            cube([cube_size/2,cube_size/2,cube_size/2],center=true);
+            rotate([0, 90, 0])
+            cylinder(cube_size/6+axle_tolerance, r, r, center=true);
+        }
+        if (support) {
+            angles = [ [0, 90, 0], [90, 90, 270] ];
+            for ( w = angles) {
+                slot_support(angle = w);
+            }
+        }
+    }
 }
 
 module connector(length=16) {
@@ -740,6 +945,13 @@ module seat(support=true) {
     }
 }
 
+module disk() {
+    intersection() {
+        plate(length=1,width=1);
+        cylinder(cube_size/3, cube_size/2, cube_size/2, center=true);
+    }
+}
+
 // --------------------------------------------------------------------------------
 // Internal modules
 // --------------------------------------------------------------------------------
@@ -791,6 +1003,14 @@ module slot(angle1, angle2=[0,0,0], distance=cube_size/2) {
             }
         }
     }
+}
+
+module slot_support(angle = [0, 0, 0]) {
+    y = (cube_size - support_width) / 2;
+    h = connector_width + support_width;
+    rotate(a = angle)
+    translate([0, y, 0])
+    cube([h, support_width, cube_size], center=true);
 }
 
 module female_connector() {
@@ -858,8 +1078,7 @@ module peg_female() {
 module peg_female_with_lock() {
     difference() {
         peg_female();
-        translate([0,0,3])
-        connector_lock(14);
+        connector_lock(8);
     }
 }
 
