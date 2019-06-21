@@ -245,6 +245,7 @@ module export(part="",support=false) {
 
         if (part == "axle_ring") axle_ring();
         if (part == "cardan_joint") cardan_joint();
+        if (part == "cardan_joint_thick") cardan_joint(thick=true);
         if (part == "cardan_cube") cardan_cube();
         if (part == "steering5") steering(number_wholes=5);
         if (part == "steering6") steering(number_wholes=6);
@@ -348,11 +349,16 @@ module cube_u_2holes() {
     }
 }
 
-module cardan_joint() {
+module cardan_joint(thick=false) {
     union() {
         difference() {
             translate([0,0,4.5])
-            cylinder(16,5,5,center=true);
+            if (thick) {
+                r = cube_size / 4 - axle_tolerance;
+                cylinder(16,r,r,center=true);
+            } else {
+                cylinder(16,5,5,center=true);
+            }
             translate([0,0,6])
             cylinder(8,3,3);
             difference() {
