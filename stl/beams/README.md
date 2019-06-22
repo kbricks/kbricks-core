@@ -73,3 +73,7 @@ beam13_rounded_flat.stl | ![beam13_rounded_flat](../../img/beams/beam13_rounded_
 beam14_rounded_flat.stl | ![beam14_rounded_flat](../../img/beams/beam14_rounded_flat.png)
 beam15_rounded_flat.stl | ![beam15_rounded_flat](../../img/beams/beam15_rounded_flat.png)
 beam16_rounded_flat.stl | ![beam16_rounded_flat](../../img/beams/beam16_rounded_flat.png)
+beam2_rounded_locked_pos1.stl | ![beam2_rounded_locked_pos1](../../img/beams/beam2_rounded_locked_pos1.png)
+beam3_rounded_locked_pos1.stl | ![beam3_rounded_locked_pos1](../../img/beams/beam3_rounded_locked_pos1.png)
+beam3_rounded_locked_pos2.stl | ![beam3_rounded_locked_pos2](../../img/beams/beam3_rounded_locked_pos2.png)
+beam5_rounded_locked_pos3.stl | ![beam5_rounded_locked_pos3](../../img/beams/beam5_rounded_locked_pos3.png)
