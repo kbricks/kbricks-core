@@ -35,7 +35,7 @@ module export(part="",support=false) {
         if (part=="cube_basic") cube_basic(support=support);
         if (part=="cube_smooth") cube_smooth(support=support);
         if (part=="cube_l") cube_l(support=support);
-        if (part=="cube_c") cube_c(support=support);
+        if (part=="cube_corner") cube_corner(support=support);
         if (part=="cube_s") cube_s(support=support);
         if (part=="cube_u") cube_u(support=support);
         if (part=="cube_u_2holes") cube_u_2holes(support=support);
@@ -634,7 +634,7 @@ module cube_l(support=false) {
     }
 }
 
-module cube_c(support=false) {
+module cube_corner(support=false) {
     union() {
         difference() {
             cube(cube_size, center=true);

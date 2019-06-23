@@ -33,7 +33,7 @@ generate_part cubes cube_smooth
 generate_part cubes cube_l
 generate_part cubes cube_u
 generate_part cubes cube_u_2holes
-generate_part cubes cube_c
+generate_part cubes cube_corner
 generate_part cubes cube_s
 generate_part cubes cube_1hole_open
 generate_part cubes cube_2open
