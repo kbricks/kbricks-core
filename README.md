@@ -8,7 +8,7 @@ This repository contains the core parts of the construction system.
 
 There are three fundamental types of parts that make up the kbricks construction system: cubes, plates, and beams. Parts are connected by two types of connectors: slide connectors and pegs. Furthermore, there are wheels, gears, axles, steerings, and icing parts which make the models look nice.
 
-  ![Examples of kbricks parts](img/kbricks_parts.jpg)
+  ![Examples of kbricks parts](img/kbricks_parts_with_models.jpg)
 
 **STL files** of all available kbricks parts can be found in the *stl* folders of this repository. The parts are organized into the following categories:
 
@@ -24,9 +24,7 @@ There are three fundamental types of parts that make up the kbricks construction
 
 ## Available models
 
-kbricks makes it easy to design your own models. Examples will become available in [kbricks-models](https://github.com/kbricks/kbricks-models) repository. The following picture shows a kbricks tractor:
-
-  ![kbricks tractor](img/kbricks_tractor.png)
+kbricks makes it easy to design your own models. Examples will become available in [kbricks-models](https://github.com/kbricks/kbricks-models) repository.
 
 ## Printing instructions
 
@@ -38,7 +36,19 @@ All parts can be printed using virtually any state-of-the-art 3d printer. For ou
 
 ## Assembling models
 
-Models are assembled by connecting its parts with slide connectors and pegs. A hex key may be helpful for inserting the slide connectors. This [video](https://youtu.be/3_plykmoSQs) (2 min) shows how to assemble a simple kbricks model.
+Models are assembled by connecting its parts with slide connectors and pegs. A hex key may be helpful for inserting the slide connectors. This [video](https://youtu.be/3_plykmoSQs) (2 min) shows how to assemble a simple kbricks model. The following list shows the number of instances, recommended color, and specific print settings for each of the parts that is making up the model:
+
+* 1 x cube_basic.stl (*silver*, *detect thin walls*)
+* 2 x cube_2hole.stl (*silver*, *detect thin walls*)
+* 1 x cube_l.stl (*yellow*, *detect thin walls*)
+* 1 x prism_60deg.stl (*silver*)
+* 2 x plate_peg.stl (*silver*)
+* 4 x spoke_wheel3.stl (*yellow*)
+* 1 x steering_wheel.stl (*yellow*, *support on build plate only*)
+* 6 x connector_long.stl (*silver*, *brim*)
+* 12 x connector_short.stl (*silver*, *brim*)
+* 4 x peg.stl (*silver*, *brim*)
+
 
 ## Disassembling models
 
