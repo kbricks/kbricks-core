@@ -36,6 +36,7 @@ module export(part="",support=false) {
         if (part=="cube_smooth") cube_smooth(support=support);
         if (part=="cube_l") cube_l(support=support);
         if (part=="cube_corner") cube_corner(support=support);
+        if (part=="cube_half") cube_half();
         if (part=="cube_s") cube_s(support=support);
         if (part=="cube_u") cube_u(support=support);
         if (part=="cube_u_2holes") cube_u_2holes(support=support);
@@ -653,6 +654,16 @@ module cube_corner(support=false) {
             for ( w = angles) {
                 slot_support(angle = w);
             }
+        }
+    }
+}
+
+module cube_half() {
+    union() {
+        for (i=[0:1]) {
+            rotate([i*180, 0, 0])
+            translate([0, 0, -cube_size/8])
+            plate(length=1,width=1);
         }
     }
 }

@@ -24,7 +24,7 @@ There are three fundamental types of parts that make up the kbricks construction
 
 ## Available models
 
-kbricks makes it easy to design your own models. Examples will become available in [kbricks-models](https://github.com/kbricks/kbricks-models) repository.
+kbricks makes it easy to design your own models. Examples models and construction manuals are available in the [kbricks-models](https://github.com/kbricks/kbricks-models) repository.
 
 ## Printing instructions
 

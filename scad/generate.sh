@@ -41,6 +41,7 @@ generate_part cubes cube_1hole
 generate_part cubes cube_2hole
 generate_part cubes prism_45deg
 generate_part cubes prism_60deg
+generate_part cubes cube_half
 generate_part connectors connector_short
 generate_part connectors connector_long
 generate_part connectors peg
