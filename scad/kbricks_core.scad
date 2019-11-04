@@ -366,28 +366,6 @@ module figure_arm(length = cube_size) {
     }
 }
 
-module figure_head_sphere() {
-    r = 11*cube_size/24;
-    h = 8*cube_size/24;
-    difference() {
-        sphere(r,center=true);
-        translate([0, 0, -r/2 - h])
-        cylinder(r, r, r, center=true);
-        translate([0, 0,  cube_size/2 - h])
-        slot(angle1=[270,0,0], cubes=false);
-        translate([-cube_size/2, 0,  cube_size/2 - h])
-        slot(angle1=[270,0,90], cubes=false);
-        translate([0, 0, cube_size/4])
-        peg_female();
-        translate([r, 0, r/2.5])
-        cube([cube_size/6, cube_size/6, cube_size/12], center=true);
-        for (i=[-1:2:1])
-            translate([r, i*r/3, -r/6])
-            rotate([0, 90, 0])
-            cylinder(cube_size/6, 1.5, 1.5, center=true);
-    }
-}
-
 module figure_head(width = 20*cube_size/24, neck_length = 2*cube_size/24) {
     neck_width = 11*cube_size/24;
     difference() {
