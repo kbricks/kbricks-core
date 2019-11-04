@@ -235,3 +235,14 @@ generate_part steerings steering8
 generate_part steerings steering_column
 generate_part icing seat
 generate_part icing disk
+generate_part icing figure_body
+generate_part icing figure_body_short
+generate_part icing figure_waist
+generate_part icing figure_arm
+generate_part icing figure_arm_short
+generate_part icing figure_hand
+generate_part icing figure_leg
+generate_part icing figure_leg_short
+generate_part icing figure_head
+generate_part icing figure_cap
+generate_part icing figure_hair
