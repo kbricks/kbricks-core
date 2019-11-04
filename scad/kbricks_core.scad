@@ -46,6 +46,17 @@ module export(part="",support=false) {
         if (part=="cube_2hole") cube_holes(number_holes=2,support=support);
         if (part=="seat") seat(support=support);
         if (part=="disk") disk();
+        if (part=="figure_body") figure_body();
+        if (part=="figure_body_short") figure_body(length = 3*cube_size/4);
+        if (part=="figure_waist") figure_waist();
+        if (part=="figure_leg") figure_leg();
+        if (part=="figure_leg_short") figure_leg(length = 3*cube_size/4);
+        if (part=="figure_arm") figure_arm();
+        if (part=="figure_arm_short") figure_arm(length = 3*cube_size/4);
+        if (part=="figure_head") figure_head();
+        if (part=="figure_hand") figure_hand();
+        if (part=="figure_cap") figure_cap();
+        if (part=="figure_hair") figure_cap(shield_length = 0);
 
         if (part=="connector_short") connector(length=6);
         if (part=="connector_long") connector(length=16);
@@ -254,6 +265,168 @@ module export(part="",support=false) {
         if (part == "steering8") steering(number_holes=8);
         if (part == "steering_column") steering_column();
    }
+}
+
+module figure_body(length = cube_size) {
+    c = cube_size - 2*beam_tolerance;
+    union() {
+        difference() {
+            cube([c, cube_size/2, length], center=true);
+            for (i=[-1:2:1]) {
+                translate([-i*cube_size/4, 0, length/2 - cube_size/4])
+                rotate([0, 90, 0])
+                peg_female();
+            }
+            angles = [ [270,0,0],[270,0,90]];
+            for (w = angles) {
+                slot(angle1=w, cubes=false, distance = length/2);
+            }
+        }
+        translate([0, 0, length/2 - beam_tolerance])
+        peg_half();
+    }
+}
+
+module figure_waist() {
+    c = cube_size - 2*beam_tolerance;
+    union() {
+        difference() {
+            cube([c, cube_size/2, cube_size/4], center=true);
+            angles = [ [270,0,0],[270,0,90]];
+            translate([0, 0, 3*cube_size/8])
+            for (w = angles) {
+                slot(angle1=w, cubes=false);
+            }
+        }
+        translate([0, 0, 3*cube_size/8])
+        difference() {
+            r = 4*cube_size/24 + axle_tolerance/2;
+            cube([cube_size/8, cube_size/2, c/2], center=true);
+            rotate([0, 90, 0])
+            cylinder(cube_size/4, r, r, center=true);
+        }
+    }
+}
+
+module figure_leg(length = cube_size) {
+    leg_dist = cube_size/8;
+    difference() {
+        union(){
+            s = cube_size/2 - 2*beam_tolerance;
+            h = cube_size/2 - 2*beam_tolerance - leg_dist/2;
+            translate([0, 0, 0])
+            hull() {
+                cylinder(h, s/2, s/2, center=true);
+                translate([-(length-cube_size/2), 0, 0])
+                cube([cube_size/2, s, h], center=true);
+            }
+            translate([-(length - cube_size/8), -s/4, 0])
+            cube([cube_size/4, 3*s/2, h], center=true);
+        }
+        for (i = [-1:2:1])
+            translate([0 ,0, i*(leg_dist/4-2*beam_tolerance)])
+            peg_female();
+        slot(angle1=90, distance=length);
+        translate([-length + cube_size/2, 0, 0])
+        slot(angle1=[0, 0, 0], distance=cube_size/4);
+    }
+}
+
+module figure_arm(length = cube_size) {
+    leg_dist = cube_size/8;
+    s = cube_size/2 - 2*beam_tolerance;
+    h = cube_size/2 - 2*beam_tolerance - leg_dist/2;
+    difference() {
+        union() {
+            translate([0, 0, 0])
+            scale([1, 1, h/s])
+            hull() {
+                translate([length/4, 0, 0])
+                union() {
+                    translate([0 ,0, s/4])
+                    cylinder(s/2, s/2, s/2, center=true);
+                    intersection() {
+                        translate([0 ,0, -s/4])
+                        cylinder(s/2, s/2, s/2, center=true);
+                        rotate([0, 90, 90])
+                        cylinder(s, s/2, s/2, center=true);
+                    }
+                }
+                translate([-length/4, 0, 0])
+                cube(s, center=true);
+                rotate([0, 90, 0])
+                cylinder(s, s/2, s/2, center=true);
+            }
+            translate([length/4, 0, h/2-2*beam_tolerance])
+            peg_half();
+        }
+        translate([-length/4 ,0, 0])
+        rotate([0, 90, 0])
+        peg_female();
+    }
+}
+
+module figure_head(width = 20*cube_size/24, neck_length = 2*cube_size/24) {
+    neck_width = 11*cube_size/24;
+    difference() {
+        union() {
+            minkowski() {
+                cube(width-cube_size/2, center=true);
+                sphere(cube_size/4);
+            }
+            translate([0, 0, width/2])
+            cylinder(2*neck_length, neck_width/2, neck_width/2, center=true);
+        }
+        translate([0, 0, -3*width/4])
+        cube([width, width, width], center=true);
+        translate([0, 0,  cube_size/2 - width/4])
+        slot(angle1=[270,0,0], cubes=false);
+        translate([-cube_size/2, 0,  cube_size/2 - width/4])
+        slot(angle1=[270,0,90], cubes=false);
+        translate([width/2, 0, width/2/2.5])
+        cube([cube_size/6, cube_size/6, cube_size/12], center=true);
+        for (i=[-1:2:1])
+            translate([width/2, i*width/6, -width/12])
+            rotate([0, 90, 0])
+            cylinder(cube_size/6, 1.5, 1.5, center=true);
+        translate([0, 0, - cube_size/4 + width/2 + neck_length])
+        peg_female();
+    }
+}
+
+module figure_cap(width = 20*cube_size/24, shield_length = cube_size/8) {
+    difference() {
+        translate([shield_length/2, 0, -cube_size/4])
+        minkowski() {
+            cube([width -cube_size/2 + shield_length, width - cube_size/2, cube_size/2], center=true);
+            sphere(cube_size/4);
+        }
+        translate([0, 0, -cube_size])
+        cube(cube_size*2, center=true);
+        slot(angle1=[270,0,0], cubes=false, distance=0);
+        translate([-cube_size/2, 0, 0])
+        slot(angle1=[270,0,90], cubes=false, distance=0);
+    }
+}
+
+module figure_hand() {
+    r1 = 4.5*cube_size/24;
+    r2 = axle_diameter/2 + axle_tolerance/2;
+    difference() {
+        union() {
+            rotate([180, 0, 0])
+            peg_half();
+            translate([0, 0, cube_size/4])
+            rotate([90, 0, 0])
+            cylinder(cube_size/3, r1, r1, center=true);
+            translate([0, 0, cube_size/12])
+            cylinder(cube_size/6, cube_size/6, cube_size/6, center=true);
+        }
+        translate([0, 0, cube_size/4])
+        rotate([90, 0, 0])
+        cylinder(cube_size/2, r2, r2, center=true);
+        slot(angle1=[270,180,0], distance=10.5*cube_size/24);
+    }
 }
 
 module spoke_wheel(size=3,rim=false,locked=false) {
@@ -1000,7 +1173,7 @@ module cube_support() {
     }
 }
 
-module slot(angle1, angle2=[0,0,0], distance=cube_size/2) {
+module slot(angle1, angle2=[0,0,0], distance=cube_size/2, cubes=true) {
     l = connector_width;
     connector_wraist = 3/4*connector_width;
     cylinder_length = cube_size+2;
@@ -1011,11 +1184,11 @@ module slot(angle1, angle2=[0,0,0], distance=cube_size/2) {
     translate([0, distance-connector_width/2,-cylinder_length/2]) {
         union() {
             cylinder(cylinder_length, l/2, l/2);
-            translate([0, 0, connector_wraist/2]) {
-            cube([l,l,corner_length], center=true);
-            }
-            translate([0, 0, cube_size+corner_tolerance/2]) {
-            cube([l,l,corner_length], center=true);
+            if (cubes) {
+                translate([0, 0, connector_wraist/2])
+                cube([l,l,corner_length], center=true);
+                translate([0, 0, cube_size+corner_tolerance/2])
+                cube([l,l,corner_length], center=true);
             }
             translate([0, (connector_width+corner_tolerance)/2, cylinder_length/2]) {
             cube([connector_wraist, connector_wraist, cylinder_length], center=true);
