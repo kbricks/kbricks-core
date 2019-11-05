@@ -301,7 +301,7 @@ module figure_waist() {
         translate([0, 0, 3*cube_size/8])
         difference() {
             r = 4*cube_size/24 + axle_tolerance/2;
-            cube([cube_size/8, cube_size/2, c/2], center=true);
+            cube([cube_size/8, cube_size/2, cube_size/2 - 2*beam_tolerance], center=true);
             rotate([0, 90, 0])
             cylinder(cube_size/4, r, r, center=true);
         }
@@ -341,7 +341,7 @@ module figure_arm(length = cube_size) {
             translate([0, 0, 0])
             scale([1, 1, h/s])
             hull() {
-                translate([length/4, 0, 0])
+                translate([(length - cube_size/2)/2, 0, 0])
                 union() {
                     translate([0 ,0, s/4])
                     cylinder(s/2, s/2, s/2, center=true);
@@ -352,15 +352,13 @@ module figure_arm(length = cube_size) {
                         cylinder(s, s/2, s/2, center=true);
                     }
                 }
-                translate([-length/4, 0, 0])
+                translate([-(length - cube_size/2)/2, 0, 0])
                 cube(s, center=true);
-                rotate([0, 90, 0])
-                cylinder(s, s/2, s/2, center=true);
             }
-            translate([length/4, 0, h/2-2*beam_tolerance])
+            translate([(length - cube_size/2)/2, 0, h/2-2*beam_tolerance])
             peg_half();
         }
-        translate([-length/4 ,0, 0])
+        translate([-(length - cube_size/2)/2 ,0, 0])
         rotate([0, 90, 0])
         peg_female();
     }
