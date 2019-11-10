@@ -324,7 +324,7 @@ module figure_leg(length = cube_size) {
             cube([cube_size/4, 3*s/2, h], center=true);
         }
         for (i = [-1:2:1])
-            translate([0 ,0, i*(leg_dist/4-2*beam_tolerance)])
+            translate([0 ,0, i*(leg_dist/4-3*beam_tolerance)])
             peg_female();
         slot(angle1=90, distance=length);
         translate([-length + cube_size/2, 0, 0])
@@ -355,7 +355,7 @@ module figure_arm(length = cube_size) {
                 translate([-(length - cube_size/2)/2, 0, 0])
                 cube(s, center=true);
             }
-            translate([(length - cube_size/2)/2, 0, h/2-2*beam_tolerance])
+            translate([(length - cube_size/2)/2, 0, h/2-3*beam_tolerance])
             peg_half();
         }
         translate([-(length - cube_size/2)/2 ,0, 0])
@@ -423,7 +423,9 @@ module figure_hand() {
         translate([0, 0, cube_size/4])
         rotate([90, 0, 0])
         cylinder(cube_size/2, r2, r2, center=true);
-        slot(angle1=[270,180,0], distance=10.5*cube_size/24);
+        translate([0, 0, 10.5*cube_size/24])
+        scale(0.95)
+        slot(angle1=[270,180,0], distance = 0);
     }
 }
 
